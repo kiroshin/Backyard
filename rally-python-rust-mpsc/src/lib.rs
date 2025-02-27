@@ -4,7 +4,7 @@ use std::thread;
 use pyo3::prelude::*;
 
 #[pyfunction]
-fn ready(callback: PyObject) -> TickSender {
+fn ready(callback: PyObject) -> TiSender {
     let wrapped = Arc::new(callback);
     let (tx, rx) = mpsc::channel::<i32>();
     thread::spawn(move || {
@@ -22,7 +22,7 @@ fn ready(callback: PyObject) -> TickSender {
         }
         eprintln!("RUST: Channel Finished");
     });
-    TickSender(tx)
+    TiSender(tx)
 }
 
 /// A Python module implemented in Rust.
@@ -34,10 +34,10 @@ fn rally_python_rust_mpsc(m: &Bound<'_, PyModule>) -> PyResult<()> {
 
 /// Sender Wrapper
 #[pyclass]
-struct TickSender (Sender<i32>);
+struct TiSender (Sender<i32>);
 
 #[pymethods]
-impl TickSender {
+impl TiSender {
     pub fn send(&self, num: i32) -> PyResult<i32> {
         self.0.send(num).unwrap();
         Ok(0)

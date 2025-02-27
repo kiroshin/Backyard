@@ -1,5 +1,5 @@
 [package]
-name = "rally_python_rust_mpsc"
+name = "rally-python-rust-mpsc"
 version = "0.0.1"
 edition = "2024"
 

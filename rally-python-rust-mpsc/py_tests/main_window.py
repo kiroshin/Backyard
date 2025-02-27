@@ -11,6 +11,7 @@ from PySide6.QtWidgets import (
 )
 from rally_python_rust_mpsc import ready
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
