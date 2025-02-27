@@ -2,8 +2,7 @@
 #  Created by Kiro Shin <mulgom@gmail.com> on 2025.
 import threading
 
-from PySide6.QtCore import Qt, QSize
-from PySide6.QtGui import QAction
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QMainWindow,
     QWidget,
