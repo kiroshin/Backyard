@@ -19,9 +19,8 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(300, 150)
         self.resize(300, 150)
         self.bootup()
-        self.tick_sender = ready(lambda x: print("PYTHON: ", x, threading.current_thread()))
-        self.other_sender = self.tick_sender
-        print("=>", self.tick_sender)
+        self.sender = ready(lambda x: print("PYTHON: ", x, threading.current_thread()))
+        print("=>", self.sender)
 
 
     def bootup(self):
@@ -43,8 +42,8 @@ class MainWindow(QMainWindow):
 
     def action1(self):
         print("Action 1 ...")
-        self.tick_sender.send(123)
+        self.sender.send(123)
 
     def action2(self):
         print("Action 2 ...")
-        self.other_sender.send(456)
+        self.sender.send(456)
