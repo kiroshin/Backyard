@@ -18,7 +18,7 @@ fn ready(callback: PyObject) -> TickSender {
                     func.call1(py, args).unwrap();
                 });
             });
-            println!("RUST WORK DONE");
+            println!("RUST Loop End");
         }
         eprintln!("RUST: Channel Finished");
     });
